@@ -23,4 +23,14 @@ def mostrar_flota():
             estado = "Ocupado"
         print(f"[{i+1}] {aviones_modelo[i]} - {aviones_tipo[i]} - {aviones_capacidad[i]} asientos - {estado}")
         
+
+#funcion paara asignar aviones por tipo de ruta 
+def asignar_avion(tipo_ruta):
+    for i in range(len(aviones_modelo)):
+        if aviones_tipo[i] == tipo_ruta and aviones_disponible[i]:
+            return i
+    return -1
+
 mostrar_flota()
+
+
