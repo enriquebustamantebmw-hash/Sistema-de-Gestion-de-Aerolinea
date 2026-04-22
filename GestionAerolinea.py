@@ -44,8 +44,6 @@ def crear_vuelo():
     print("2- Intercontinental")
     opcion = input("Opcion: ")
     
-    print("Elegir tipo de vuelo")
-    
     if opcion == "1":
         tipo = "continental"
     elif opcion == "2":
@@ -68,6 +66,37 @@ def crear_vuelo():
     vuelos_avion.append(indice)
 
     print("Vuelo creado correctamente")
-     
-crear_vuelo()
 
+
+#funcion para mostrar los vuelos
+
+def mostrar_vuelos():
+    print("Lista de vuelos:")
+
+    for i in range(len(vuelos_origen)):
+        print("Vuelo", i+1)
+        print("Origen:", vuelos_origen[i])
+        print("Destino:", vuelos_destino[i])
+        print("Tipo:", vuelos_tipo[i])
+        print("Avion:", aviones_modelo[vuelos_avion[i]])
+        print()
+
+
+#funcion para mostrar vuelos usando diccionario
+
+def mostrar_vuelos_diccionario():
+    print("Vuelos en formato diccionario:")
+
+    for i in range(len(vuelos_origen)):
+        vuelo = {}
+        vuelo["origen"] = vuelos_origen[i]
+        vuelo["destino"] = vuelos_destino[i]
+        vuelo["tipo"] = vuelos_tipo[i]
+        vuelo["avion"] = aviones_modelo[vuelos_avion[i]]
+
+        print(vuelo)
+
+
+mostrar_flota() 
+crear_vuelo()
+mostrar_vuelos()
