@@ -29,3 +29,13 @@ def mostrar_flota():
         print("Capacidad:", avion["capacidad"], "asientos")
         print("Estado:", estado)
         print("-------------------------")
+        
+def asignar_avion(tipo_ruta):
+    """busca un avion disponible segun el tipo de ruta."""
+
+    for avion in aviones:
+        if avion["tipo"] == tipo_ruta and avion["disponible"]:
+            return avion
+
+    return None    
+
