@@ -39,3 +39,45 @@ def asignar_avion(tipo_ruta):
 
     return None    
 
+def crear_vuelo():
+    """permite crear un vuelo y asignar un avion disponible."""
+
+    print("\nCrear vuelo")
+    origen = input("Origen: ")
+    destino = input("Destino: ")
+
+    print("1- Continental")
+    print("2- Intercontinental")
+    opcion = input("Opcion: ")
+
+    if opcion == "1":
+        tipo = "continental"
+    elif opcion == "2":
+        tipo = "intercontinental"
+    else:
+        print("Opcion invalida")
+        return
+
+    avion = asignar_avion(tipo)
+
+    if avion == None:
+        print("No hay aviones disponibles para ese tipo de ruta")
+        return
+
+    avion["disponible"] = False
+
+    vuelo = {
+        "origen": origen,
+        "destino": destino,
+        "tipo": tipo,
+        "avion": avion["modelo"],
+        "capacidad": avion["capacidad"],
+        "asientos_disponibles": avion["capacidad"]
+    }
+
+    vuelos.append(vuelo)
+
+    print("Vuelo creado correctamente")
+
+mostrar_flota()
+crear_vuelo()
