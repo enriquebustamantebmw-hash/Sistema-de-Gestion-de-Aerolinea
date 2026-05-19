@@ -79,5 +79,24 @@ def crear_vuelo():
 
     print("Vuelo creado correctamente")
 
+def mostrar_vuelos():
+    """muestra todos los vuelos creados"""
+
+    if len(vuelos) == 0:
+        print("No hay vuelos registrados")
+        return
+
+    print("\nLista de vuelos:")
+
+    for i in range(len(vuelos)):
+        print("Vuelo", i + 1)
+        print("Origen:", vuelos[i]["origen"])
+        print("Destino:", vuelos[i]["destino"])
+        print("Tipo:", vuelos[i]["tipo"])
+        print("Avion:", vuelos[i]["avion"])
+        print("Asientos disponibles:", vuelos[i]["asientos_disponibles"])
+        print("-------------------------")
+        
 mostrar_flota()
 crear_vuelo()
+mostrar_vuelos()
