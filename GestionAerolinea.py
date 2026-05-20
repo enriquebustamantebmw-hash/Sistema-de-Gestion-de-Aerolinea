@@ -118,7 +118,7 @@ def menu():
         elif opcion == "3":
             mostrar_vuelos()
         elif opcion == "0":
-            print("Fin del programa")
+            print("Fin del sistema")
         else:
             print("Opcion invalida")
             
