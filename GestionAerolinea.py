@@ -97,6 +97,29 @@ def mostrar_vuelos():
         print("Asientos disponibles:", vuelos[i]["asientos_disponibles"])
         print("-------------------------")
         
-mostrar_flota()
-crear_vuelo()
-mostrar_vuelos()
+def menu():
+    """se muestra el menu principal del sistema."""
+
+    opcion = ""
+
+    while opcion != "0":
+        print("\nSistema de Gestion de Aerolinea")
+        print("1- Ver flota")
+        print("2- Crear vuelo")
+        print("3- Ver vuelos")
+        print("0- Salir")
+
+        opcion = input("Opcion: ")
+
+        if opcion == "1":
+            mostrar_flota()
+        elif opcion == "2":
+            crear_vuelo()
+        elif opcion == "3":
+            mostrar_vuelos()
+        elif opcion == "0":
+            print("Fin del programa")
+        else:
+            print("Opcion invalida")
+            
+menu()
