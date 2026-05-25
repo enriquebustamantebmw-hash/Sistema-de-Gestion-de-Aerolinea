@@ -107,6 +107,8 @@ def menu():
         print("1- Ver flota")
         print("2- Crear vuelo")
         print("3- Ver vuelos")
+        print("4- Registrar pasajero")
+        print("5- Ver pasajeros")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -117,9 +119,65 @@ def menu():
             crear_vuelo()
         elif opcion == "3":
             mostrar_vuelos()
+            
+        elif opcion == "4":
+            registrar_pasajero()
+        elif opcion == "5":
+            mostrar_pasajeros()
         elif opcion == "0":
             print("Fin del sistema")
         else:
             print("Opcion invalida")
             
+
+
+def buscar_pasajero_por_dni(dni):
+    """Busca a un pasajero por Dni """
+
+    for pasajero in pasajeros:
+        if pasajero["dni"] == dni:
+            return pasajero
+
+    return None
+
+
+def registrar_pasajero():
+    """Registra un pasajero validando que el dni no este repetido"""
+
+    print("\nRegistrar pasajero")
+    nombre = input("Nombre: ")
+    apellido = input("Apellido: ")
+    dni = input("DNI: ")
+
+    if buscar_pasajero_por_dni(dni) != None:
+        print("Ya existe un pasajero registrado con ese dni")
+        return
+
+    pasajero = {
+        "nombre": nombre,
+        "apellido": apellido,
+        "dni": dni
+    }
+
+    pasajeros.append(pasajero)
+
+    print("Pasajero registrado correctamente")
+
+
+def mostrar_pasajeros():
+    """Muestra la lista de pasajeros registrados."""
+
+    if len(pasajeros) == 0:
+        print("No hay pasajeros registrados")
+        return
+
+    print("\nLista de pasajeros:")
+
+    for i in range(len(pasajeros)):
+        print("Pasajero", i + 1)
+        print("Nombre:", pasajeros[i]["nombre"])
+        print("Apellido:", pasajeros[i]["apellido"])
+        print("DNI:", pasajeros[i]["dni"])
+        print("-------------------------")
+        
 menu()
