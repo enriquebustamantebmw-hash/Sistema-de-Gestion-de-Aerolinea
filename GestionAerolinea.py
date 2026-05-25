@@ -109,6 +109,8 @@ def menu():
         print("3- Ver vuelos")
         print("4- Registrar pasajero")
         print("5- Ver pasajeros")
+        print("6- Realizar reserva")
+        print("7- Ver reservas")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -124,6 +126,10 @@ def menu():
             registrar_pasajero()
         elif opcion == "5":
             mostrar_pasajeros()
+        elif opcion == "6":
+            realizar_reserva()
+        elif opcion == "7":
+            mostrar_reservas()
         elif opcion == "0":
             print("Fin del sistema")
         else:
@@ -178,6 +184,87 @@ def mostrar_pasajeros():
         print("Nombre:", pasajeros[i]["nombre"])
         print("Apellido:", pasajeros[i]["apellido"])
         print("DNI:", pasajeros[i]["dni"])
+        print("-------------------------")
+        
+
+
+def mostrar_vuelos_con_numero():
+    """muestra los vuelos con un numero para poder seleccionarlos"""
+
+    if len(vuelos) == 0:
+        print("No hay vuelos registrados")
+        return
+
+    for i in range(len(vuelos)):
+        print(i + 1, "-", vuelos[i]["origen"], "->", vuelos[i]["destino"], "-", vuelos[i]["avion"])
+
+
+def realizar_reserva():
+    """realiza una reserva asociando un pasajero a un vuelo"""
+
+    if len(vuelos) == 0:
+        print("No hay vuelos registrados")
+        return
+
+    if len(pasajeros) == 0:
+        print("No hay pasajeros registrados")
+        return
+
+    dni = input("DNI del pasajero: ")
+    pasajero = buscar_pasajero_por_dni(dni)
+
+    if pasajero == None:
+        print("Pasajero no encontrado")
+        return
+
+    mostrar_vuelos_con_numero()
+
+    try:
+        numero_vuelo = int(input("Seleccione el numero de vuelo: "))
+    except ValueError:
+        print("Debe ingresar un numero")
+        return
+
+    if numero_vuelo < 1 or numero_vuelo > len(vuelos):
+        print("Numero de vuelo invalido")
+        return
+
+    vuelo = vuelos[numero_vuelo - 1]
+
+    if vuelo["asientos_disponibles"] <= 0:
+        print("El vuelo esta completo")
+        return
+
+    vuelo["asientos_disponibles"] = vuelo["asientos_disponibles"] - 1
+
+    reserva = {
+        "dni": pasajero["dni"],
+        "pasajero": pasajero["nombre"] + " " + pasajero["apellido"],
+        "origen": vuelo["origen"],
+        "destino": vuelo["destino"],
+        "avion": vuelo["avion"]
+    }
+
+    reservas.append(reserva)
+
+    print("Reserva realizada correctamente")
+
+
+def mostrar_reservas():
+    """muestra todas las reservas realizadas."""
+
+    if len(reservas) == 0:
+        print("No hay reservas registradas")
+        return
+
+    print("\nLista de reservas:")
+
+    for i in range(len(reservas)):
+        print("Reserva", i + 1)
+        print("Pasajero:", reservas[i]["pasajero"])
+        print("DNI:", reservas[i]["dni"])
+        print("Vuelo:", reservas[i]["origen"], "->", reservas[i]["destino"])
+        print("Avion:", reservas[i]["avion"])
         print("-------------------------")
         
 menu()
