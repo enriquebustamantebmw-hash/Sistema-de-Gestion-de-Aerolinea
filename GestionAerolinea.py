@@ -1,5 +1,7 @@
 """Sistema de Gestion de Aerolinea - Programacion 1 - Grupo 4"""
 
+from functools import reduce
+
 aviones = [
     {"id": 1, "modelo": "A320", "tipo": "continental", "capacidad": 180, "disponible": True},
     {"id": 2, "modelo": "A320", "tipo": "continental", "capacidad": 180, "disponible": True},
@@ -114,6 +116,7 @@ def menu():
         print("8- Ver aviones disponibles")
         print("9- Ver vuelos continentales")
         print("10- Ver modelos de aviones")
+        print("11- Ver capacidad total")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -139,6 +142,8 @@ def menu():
             mostrar_vuelos_continentales()
         elif opcion == "10":
            mostrar_modelos_aviones()
+        elif opcion == "11":
+         mostrar_capacidad_total()
         elif opcion == "0":
             print("Fin del sistema")
         else:
@@ -313,3 +318,13 @@ def mostrar_modelos_aviones():
     print("\nModelos de aviones:")
     for modelo in modelos:
         print(modelo)
+
+def mostrar_capacidad_total():
+    """uso reduce para mostrar la capacidad total de la flota de aviones"""
+
+    capacidades = list(map(lambda avion: avion["capacidad"], aviones))
+    total = reduce(lambda acumulador, capacidad: acumulador + capacidad, capacidades)
+
+    print("Capacidad total de la flota:", total, "asientos")
+    
+menu()
