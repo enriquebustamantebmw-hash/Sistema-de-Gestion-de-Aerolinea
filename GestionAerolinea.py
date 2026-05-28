@@ -111,6 +111,8 @@ def menu():
         print("5- Ver pasajeros")
         print("6- Realizar reserva")
         print("7- Ver reservas")
+        print("8- Ver aviones disponibles")
+        print("9- Ver vuelos continentales")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -130,6 +132,10 @@ def menu():
             realizar_reserva()
         elif opcion == "7":
             mostrar_reservas()
+        elif opcion == "8":
+            mostrar_aviones_disponibles()
+        elif opcion == "9":
+             mostrar_vuelos_continentales()
         elif opcion == "0":
             print("Fin del sistema")
         else:
@@ -266,5 +272,34 @@ def mostrar_reservas():
         print("Vuelo:", reservas[i]["origen"], "->", reservas[i]["destino"])
         print("Avion:", reservas[i]["avion"])
         print("-------------------------")
+        
+
+
+def mostrar_aviones_disponibles():
+    """muestra solo los aviones disponibles usando filter"""
+
+    disponibles = list(filter(lambda avion: avion["disponible"], aviones))
+
+    if len(disponibles) == 0:
+        print("No hay aviones disponibles")
+        return
+
+    print("\nAviones disponibles:")
+    for avion in disponibles:
+        print("ID:", avion["id"], "-", avion["modelo"], "-", avion["tipo"])
+
+
+def mostrar_vuelos_continentales():
+    """muestra solo los vuelos continentales usando filter"""
+
+    continentales = list(filter(lambda vuelo: vuelo["tipo"] == "continental", vuelos))
+
+    if len(continentales) == 0:
+        print("No hay vuelos continentales")
+        return
+
+    print("\nVuelos continentales:")
+    for vuelo in continentales:
+        print(vuelo["origen"], "->", vuelo["destino"], "-", vuelo["avion"])
         
 menu()
