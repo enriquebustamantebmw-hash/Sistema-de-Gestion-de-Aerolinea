@@ -113,6 +113,7 @@ def menu():
         print("7- Ver reservas")
         print("8- Ver aviones disponibles")
         print("9- Ver vuelos continentales")
+        print("10- Ver modelos de aviones")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -135,7 +136,9 @@ def menu():
         elif opcion == "8":
             mostrar_aviones_disponibles()
         elif opcion == "9":
-             mostrar_vuelos_continentales()
+            mostrar_vuelos_continentales()
+        elif opcion == "10":
+           mostrar_modelos_aviones()
         elif opcion == "0":
             print("Fin del sistema")
         else:
@@ -302,4 +305,11 @@ def mostrar_vuelos_continentales():
     for vuelo in continentales:
         print(vuelo["origen"], "->", vuelo["destino"], "-", vuelo["avion"])
         
-menu()
+def mostrar_modelos_aviones():
+    """muestra los modelos de aviones usando map"""
+
+    modelos = list(map(lambda avion: avion["modelo"], aviones))
+
+    print("\nModelos de aviones:")
+    for modelo in modelos:
+        print(modelo)
