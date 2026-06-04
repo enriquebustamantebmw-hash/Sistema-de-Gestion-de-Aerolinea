@@ -117,6 +117,7 @@ def menu():
         print("9- Ver vuelos continentales")
         print("10- Ver modelos de aviones")
         print("11- Ver capacidad total")
+        print("12- Guardar reporte de vuelos en TXT")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -144,6 +145,8 @@ def menu():
            mostrar_modelos_aviones()
         elif opcion == "11":
          mostrar_capacidad_total()
+        elif opcion == "12":
+         guardar_reporte_vuelos_txt()
         elif opcion == "0":
             print("Fin del sistema")
         else:
@@ -326,5 +329,30 @@ def mostrar_capacidad_total():
     total = reduce(lambda acumulador, capacidad: acumulador + capacidad, capacidades)
 
     print("Capacidad total de la flota:", total, "asientos")
+    
+def guardar_reporte_vuelos_txt():
+    """guarda un reporte de los vuelos en un archivo de texto"""
+
+    if len(vuelos) == 0:
+        print("No hay vuelos para guardar")
+        return
+
+    archivo = open("reporte_vuelos.txt", "w")
+
+    archivo.write("Reporte de vuelos\n")
+    archivo.write("-------------------------\n")
+
+    for i in range(len(vuelos)):
+        archivo.write("Vuelo " + str(i + 1) + "\n")
+        archivo.write("Origen: " + vuelos[i]["origen"] + "\n")
+        archivo.write("Destino: " + vuelos[i]["destino"] + "\n")
+        archivo.write("Tipo: " + vuelos[i]["tipo"] + "\n")
+        archivo.write("Avion: " + vuelos[i]["avion"] + "\n")
+        archivo.write("Asientos disponibles: " + str(vuelos[i]["asientos_disponibles"]) + "\n")
+        archivo.write("-------------------------\n")
+
+    archivo.close()
+
+    print("Reporte de vuelos guardado correctamente")
     
 menu()

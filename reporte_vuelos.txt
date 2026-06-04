@@ -1,0 +1,9 @@
+Reporte de vuelos
+-------------------------
+Vuelo 1
+Origen: Buenos Aires
+Destino: Santiago
+Tipo: continental
+Avion: A320
+Asientos disponibles: 179
+-------------------------
