@@ -1,0 +1,72 @@
+{
+    "aviones": [
+        {
+            "id": 1,
+            "modelo": "A320",
+            "tipo": "continental",
+            "capacidad": 180,
+            "disponible": true
+        },
+        {
+            "id": 2,
+            "modelo": "A320",
+            "tipo": "continental",
+            "capacidad": 180,
+            "disponible": true
+        },
+        {
+            "id": 3,
+            "modelo": "A320",
+            "tipo": "continental",
+            "capacidad": 180,
+            "disponible": true
+        },
+        {
+            "id": 4,
+            "modelo": "A320",
+            "tipo": "continental",
+            "capacidad": 180,
+            "disponible": true
+        },
+        {
+            "id": 5,
+            "modelo": "A350",
+            "tipo": "intercontinental",
+            "capacidad": 300,
+            "disponible": false
+        },
+        {
+            "id": 6,
+            "modelo": "Boeing 777",
+            "tipo": "intercontinental",
+            "capacidad": 300,
+            "disponible": true
+        }
+    ],
+    "vuelos": [
+        {
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "tipo": "intercontinental",
+            "avion": "A350",
+            "capacidad": 300,
+            "asientos_disponibles": 299
+        }
+    ],
+    "pasajeros": [
+        {
+            "nombre": "Enrique",
+            "apellido": "Bustamante",
+            "dni": "37687961"
+        }
+    ],
+    "reservas": [
+        {
+            "dni": "37687961",
+            "pasajero": "Enrique Bustamante",
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "avion": "A350"
+        }
+    ]
+}

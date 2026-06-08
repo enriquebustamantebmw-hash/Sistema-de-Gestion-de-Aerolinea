@@ -1,5 +1,5 @@
-"""Sistema de Gestion de Aerolinea - Programacion 1 - Grupo 4"""
-
+"""Sistema de Gestion de Aerolinea - Programacion 1 - Grupo 4 - Enrique Bustamante"""
+import json
 from functools import reduce
 
 aviones = [
@@ -118,6 +118,7 @@ def menu():
         print("10- Ver modelos de aviones")
         print("11- Ver capacidad total")
         print("12- Guardar reporte de vuelos en TXT")
+        print("13- Guardar datos en JSON")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -144,11 +145,13 @@ def menu():
         elif opcion == "10":
            mostrar_modelos_aviones()
         elif opcion == "11":
-         mostrar_capacidad_total()
+            mostrar_capacidad_total()
         elif opcion == "12":
-         guardar_reporte_vuelos_txt()
+            guardar_reporte_vuelos_txt()
         elif opcion == "0":
             print("Fin del sistema")
+        elif opcion == "13":
+           guardar_datos_json()
         else:
             print("Opcion invalida")
             
@@ -354,5 +357,22 @@ def guardar_reporte_vuelos_txt():
     archivo.close()
 
     print("Reporte de vuelos guardado correctamente")
+    
+    
+def guardar_datos_json():
+    """guarda los datos principales del sistema en un archivo JSON"""
+
+    datos = {
+        "aviones": aviones,
+        "vuelos": vuelos,
+        "pasajeros": pasajeros,
+        "reservas": reservas
+    }
+
+    archivo = open("datos_aerolinea.json", "w")
+    json.dump(datos, archivo, indent=4)
+    archivo.close()
+
+    print("Datos guardados en json correctamente")
     
 menu()
