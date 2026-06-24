@@ -2,6 +2,7 @@
 import json
 from functools import reduce
 
+
 aviones = [
     {"id": 1, "modelo": "A320", "tipo": "continental", "capacidad": 180, "disponible": True},
     {"id": 2, "modelo": "A320", "tipo": "continental", "capacidad": 180, "disponible": True},
@@ -121,6 +122,7 @@ def menu():
         print("13- Guardar datos en JSON")
         print("14- Cargar datos desde JSON")
         print("15- Ver vuelos ordenados por destino")
+        print("16- Ver estadisticas")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -157,6 +159,8 @@ def menu():
           cargar_datos_json()
         elif opcion == "15":
          mostrar_vuelos_ordenados_destino()
+        elif opcion == "16":
+         mostrar_estadisticas()
         else:
             print("Opcion invalida")
             
@@ -422,5 +426,26 @@ def mostrar_vuelos_ordenados_destino():
         print("Tipo:", vuelos_ordenados[i]["tipo"])
         print("Avion:", vuelos_ordenados[i]["avion"])
         print("-------------------------")
+        
+def mostrar_estadisticas():
+    """muestra estadisticas generales del sistema"""
+
+    print("\nEstadisticas del sistema")
+    print("-------------------------")
+    print("Cantidad de aviones:", len(aviones))
+    print("Cantidad de vuelos:", len(vuelos))
+    print("Cantidad de pasajeros:", len(pasajeros))
+    print("Cantidad de reservas:", len(reservas))
+
+    asientos_totales = 0
+    asientos_disponibles = 0
+
+    for i in range(len(vuelos)):
+        asientos_totales = asientos_totales + vuelos[i]["capacidad"]
+        asientos_disponibles = asientos_disponibles + vuelos[i]["asientos_disponibles"]
+
+    print("Asientos totales en vuelos:", asientos_totales)
+    print("Asientos disponibles:", asientos_disponibles)
+    print("Asientos reservados:", asientos_totales - asientos_disponibles)
     
 menu()

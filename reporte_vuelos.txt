@@ -2,22 +2,8 @@ Reporte de vuelos
 -------------------------
 Vuelo 1
 Origen: Buenos Aires
-Destino: Santiago
-Tipo: continental
-Avion: A320
-Asientos disponibles: 179
--------------------------
-Vuelo 2
-Origen: Buenos Aires
-Destino: Lima
-Tipo: continental
-Avion: A320
-Asientos disponibles: 180
--------------------------
-Vuelo 3
-Origen: Buenos Aires
 Destino: Miami
 Tipo: intercontinental
 Avion: A350
-Asientos disponibles: 300
+Asientos disponibles: 299
 -------------------------
