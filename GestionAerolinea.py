@@ -1,6 +1,7 @@
 """Sistema de Gestion de Aerolinea - Programacion 1 - Grupo 4 - Enrique Bustamante"""
 import json
 from functools import reduce
+import re
 
 
 aviones = [
@@ -186,6 +187,9 @@ def registrar_pasajero():
 
     if buscar_pasajero_por_dni(dni) != None:
         print("Ya existe un pasajero registrado con ese dni")
+        return
+    if not validar_dni(dni):
+        print("DNI invalido")
         return
 
     pasajero = {
@@ -447,5 +451,15 @@ def mostrar_estadisticas():
     print("Asientos totales en vuelos:", asientos_totales)
     print("Asientos disponibles:", asientos_disponibles)
     print("Asientos reservados:", asientos_totales - asientos_disponibles)
+    
+def validar_dni(dni):
+    """valida que el DNI tenga solo numeros y entre 7 y 8 digitos"""
+
+    patron = "^[0-9]{7,8}$"
+
+    if re.match(patron, dni):
+        return True
+    else:
+        return False
     
 menu()
