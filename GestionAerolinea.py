@@ -119,6 +119,7 @@ def menu():
         print("11- Ver capacidad total")
         print("12- Guardar reporte de vuelos en TXT")
         print("13- Guardar datos en JSON")
+        print("14- Cargar datos desde JSON")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -128,8 +129,7 @@ def menu():
         elif opcion == "2":
             crear_vuelo()
         elif opcion == "3":
-            mostrar_vuelos()
-            
+            mostrar_vuelos() 
         elif opcion == "4":
             registrar_pasajero()
         elif opcion == "5":
@@ -152,6 +152,8 @@ def menu():
             print("Fin del sistema")
         elif opcion == "13":
            guardar_datos_json()
+        elif opcion == "14":
+          cargar_datos_json()
         else:
             print("Opcion invalida")
             
@@ -374,5 +376,29 @@ def guardar_datos_json():
     archivo.close()
 
     print("Datos guardados en json correctamente")
+    
+    
+def cargar_datos_json():
+    """carga los datos principales del sistema desde un archivo Json"""
+
+    global aviones
+    global vuelos
+    global pasajeros
+    global reservas
+
+    try:
+        archivo = open("datos_aerolinea.json", "r")
+        datos = json.load(archivo)
+        archivo.close()
+
+        aviones = datos["aviones"]
+        vuelos = datos["vuelos"]
+        pasajeros = datos["pasajeros"]
+        reservas = datos["reservas"]
+
+        print("Datos cargados desde JSON correctamente")
+
+    except FileNotFoundError:
+        print("No existe un archivo JSON guardado")
     
 menu()

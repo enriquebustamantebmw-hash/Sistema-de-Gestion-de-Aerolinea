@@ -5,14 +5,14 @@
             "modelo": "A320",
             "tipo": "continental",
             "capacidad": 180,
-            "disponible": true
+            "disponible": false
         },
         {
             "id": 2,
             "modelo": "A320",
             "tipo": "continental",
             "capacidad": 180,
-            "disponible": true
+            "disponible": false
         },
         {
             "id": 3,
@@ -46,27 +46,48 @@
     "vuelos": [
         {
             "origen": "Buenos Aires",
+            "destino": "Santiago",
+            "tipo": "continental",
+            "avion": "A320",
+            "capacidad": 180,
+            "asientos_disponibles": 179
+        },
+        {
+            "origen": "Buenos Aires",
+            "destino": "Lima",
+            "tipo": "continental",
+            "avion": "A320",
+            "capacidad": 180,
+            "asientos_disponibles": 180
+        },
+        {
+            "origen": "Buenos Aires",
             "destino": "Miami",
             "tipo": "intercontinental",
             "avion": "A350",
             "capacidad": 300,
-            "asientos_disponibles": 299
+            "asientos_disponibles": 300
         }
     ],
     "pasajeros": [
         {
-            "nombre": "Enrique",
+            "nombre": "Luis",
             "apellido": "Bustamante",
-            "dni": "37687961"
+            "dni": "37687951"
+        },
+        {
+            "nombre": "RR",
+            "apellido": "rr",
+            "dni": "65235674"
         }
     ],
     "reservas": [
         {
-            "dni": "37687961",
-            "pasajero": "Enrique Bustamante",
+            "dni": "37687951",
+            "pasajero": "Luis Bustamante",
             "origen": "Buenos Aires",
-            "destino": "Miami",
-            "avion": "A350"
+            "destino": "Santiago",
+            "avion": "A320"
         }
     ]
 }
