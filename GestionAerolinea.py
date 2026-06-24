@@ -120,6 +120,7 @@ def menu():
         print("12- Guardar reporte de vuelos en TXT")
         print("13- Guardar datos en JSON")
         print("14- Cargar datos desde JSON")
+        print("15- Ver vuelos ordenados por destino")
         print("0- Salir")
 
         opcion = input("Opcion: ")
@@ -154,6 +155,8 @@ def menu():
            guardar_datos_json()
         elif opcion == "14":
           cargar_datos_json()
+        elif opcion == "15":
+         mostrar_vuelos_ordenados_destino()
         else:
             print("Opcion invalida")
             
@@ -400,5 +403,24 @@ def cargar_datos_json():
 
     except FileNotFoundError:
         print("No existe un archivo JSON guardado")
+        
+def mostrar_vuelos_ordenados_destino():
+    """muestra los vuelos ordenados por destino usando lambda"""
+
+    if len(vuelos) == 0:
+        print("No hay vuelos registrados")
+        return
+
+    vuelos_ordenados = sorted(vuelos, key=lambda vuelo: vuelo["destino"])
+
+    print("\nVuelos ordenados por destino:")
+
+    for i in range(len(vuelos_ordenados)):
+        print("Vuelo", i + 1)
+        print("Origen:", vuelos_ordenados[i]["origen"])
+        print("Destino:", vuelos_ordenados[i]["destino"])
+        print("Tipo:", vuelos_ordenados[i]["tipo"])
+        print("Avion:", vuelos_ordenados[i]["avion"])
+        print("-------------------------")
     
 menu()
