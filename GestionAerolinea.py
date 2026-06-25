@@ -52,11 +52,11 @@ def crear_vuelo():
 
     print("1- Continental")
     print("2- Intercontinental")
-    opcion = input("Opcion: ")
+    opcion = pedir_numero("Opcion: ")
 
-    if opcion == "1":
+    if opcion == 1:
         tipo = "continental"
-    elif opcion == "2":
+    elif opcion == 2:
         tipo = "intercontinental"
     else:
         print("Opcion invalida")
@@ -106,7 +106,7 @@ def menu():
 
     opcion = ""
 
-    while opcion != "0":
+    while opcion != 0:
         print("\nSistema de Gestion de Aerolinea")
         print("1- Ver flota")
         print("2- Crear vuelo")
@@ -126,41 +126,41 @@ def menu():
         print("16- Ver estadisticas")
         print("0- Salir")
 
-        opcion = input("Opcion: ")
+        opcion = pedir_numero("Opcion: ")
 
-        if opcion == "1":
+        if opcion == 1:
             mostrar_flota()
-        elif opcion == "2":
+        elif opcion == 2:
             crear_vuelo()
-        elif opcion == "3":
+        elif opcion == 3:
             mostrar_vuelos() 
-        elif opcion == "4":
+        elif opcion == 4:
             registrar_pasajero()
-        elif opcion == "5":
+        elif opcion == 5:
             mostrar_pasajeros()
-        elif opcion == "6":
+        elif opcion == 6:
             realizar_reserva()
-        elif opcion == "7":
+        elif opcion == 7:
             mostrar_reservas()
-        elif opcion == "8":
+        elif opcion == 8:
             mostrar_aviones_disponibles()
-        elif opcion == "9":
+        elif opcion == 9:
             mostrar_vuelos_continentales()
-        elif opcion == "10":
+        elif opcion == 10:
            mostrar_modelos_aviones()
-        elif opcion == "11":
+        elif opcion == 11:
             mostrar_capacidad_total()
-        elif opcion == "12":
+        elif opcion == 12:
             guardar_reporte_vuelos_txt()
-        elif opcion == "0":
+        elif opcion == 0:
             print("Fin del sistema")
-        elif opcion == "13":
+        elif opcion == 13:
            guardar_datos_json()
-        elif opcion == "14":
+        elif opcion == 14:
           cargar_datos_json()
-        elif opcion == "15":
+        elif opcion == 15:
          mostrar_vuelos_ordenados_destino()
-        elif opcion == "16":
+        elif opcion == 16:
          mostrar_estadisticas()
         else:
             print("Opcion invalida")
@@ -186,7 +186,7 @@ def registrar_pasajero():
     dni = input("DNI: ")
 
     if buscar_pasajero_por_dni(dni) != None:
-        print("Ya existe un pasajero registrado con ese dni")
+        print("ya existe un pasajero registrado con ese dni")
         return
     if not validar_dni(dni):
         print("DNI invalido")
@@ -253,7 +253,9 @@ def realizar_reserva():
     mostrar_vuelos_con_numero()
 
     try:
-        numero_vuelo = int(input("Seleccione el numero de vuelo: "))
+        numero_vuelo = pedir_numero("Seleccione el numero de vuelo: ")
+        if numero_vuelo == -1:
+            return
     except ValueError:
         print("Debe ingresar un numero")
         return
@@ -461,5 +463,16 @@ def validar_dni(dni):
         return True
     else:
         return False
+    
+def pedir_numero(mensaje):
+    """pide un numero al usuario y controla errores de ingreso"""
+
+    try:
+        numero = int(input(mensaje))
+        return numero
+
+    except ValueError:
+        print("Debe ingresar un numero")
+        return -1
     
 menu()
