@@ -19,7 +19,7 @@ reservas = []
 
 
 def mostrar_flota():
-    """Muestra la flota de aviones con su estado de disponibilidad."""
+    """Muestra la flota de aviones con su estado de disponibilidad"""
     print("\nFlota de aviones:")
     for avion in aviones:
         if avion["disponible"]:
@@ -35,7 +35,7 @@ def mostrar_flota():
         print("-------------------------")
         
 def asignar_avion(tipo_ruta):
-    """busca un avion disponible segun el tipo de ruta."""
+    """busca un avion disponible segun el tipo de ruta"""
 
     for avion in aviones:
         if avion["tipo"] == tipo_ruta and avion["disponible"]:
@@ -44,7 +44,7 @@ def asignar_avion(tipo_ruta):
     return None    
 
 def crear_vuelo():
-    """permite crear un vuelo y asignar un avion disponible."""
+    """permite crear un vuelo y asignar un avion disponible"""
 
     print("\nCrear vuelo")
     origen = input("Origen: ")
@@ -108,10 +108,10 @@ def mostrar_vuelos():
         print("Tipo:", vuelos[i]["tipo"])
         print("Avion:", vuelos[i]["avion"])
         print("Asientos disponibles:", vuelos[i]["asientos_disponibles"])
-        print("-------------------------")
+        print("---")
         
 def menu():
-    """se muestra el menu principal del sistema."""
+    """se muestra el menu principal del sistema"""
 
     opcion = ""
 
@@ -158,19 +158,19 @@ def menu():
         elif opcion == 10:
            mostrar_modelos_aviones()
         elif opcion == 11:
-            mostrar_capacidad_total()
+           mostrar_capacidad_total()
         elif opcion == 12:
-            guardar_reporte_vuelos_txt()
+           guardar_reporte_vuelos_txt()
         elif opcion == 0:
-            print("Fin del sistema")
+           print("Fin del sistema")
         elif opcion == 13:
            guardar_datos_json()
         elif opcion == 14:
-          cargar_datos_json()
+           cargar_datos_json()
         elif opcion == 15:
-         mostrar_vuelos_ordenados_destino()
+           mostrar_vuelos_ordenados_destino()
         elif opcion == 16:
-         mostrar_estadisticas()
+           mostrar_estadisticas()
         else:
             print("Opcion invalida")
             
@@ -221,7 +221,7 @@ def registrar_pasajero():
 
 
 def mostrar_pasajeros():
-    """Muestra la lista de pasajeros registrados."""
+    """Muestra la lista de pasajeros registrados"""
 
     if len(pasajeros) == 0:
         print("No hay pasajeros registrados")
