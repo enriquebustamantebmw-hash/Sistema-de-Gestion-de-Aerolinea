@@ -116,24 +116,37 @@ def menu():
     opcion = ""
 
     while opcion != 0:
-        print("\nSistema de Gestion de Aerolinea")
+        print("\n================================")
+        print(" Sistema de Gestion de Aerolinea")
+        print("================================")
+
+        print("\n--- Gestion de vuelos ---")
         print("1- Ver flota")
         print("2- Crear vuelo")
         print("3- Ver vuelos")
+
+        print("\n--- Pasajeros y reservas ---")
         print("4- Registrar pasajero")
         print("5- Ver pasajeros")
         print("6- Realizar reserva")
         print("7- Ver reservas")
+
+        print("\n--- Consultas ---")
         print("8- Ver aviones disponibles")
         print("9- Ver vuelos continentales")
         print("10- Ver modelos de aviones")
         print("11- Ver capacidad total")
+
+        print("\n--- Archivos ---")
         print("12- Guardar reporte de vuelos en TXT")
         print("13- Guardar datos en JSON")
         print("14- Cargar datos desde JSON")
+
+        print("\n--- Reportes y estadisticas ---")
         print("15- Ver vuelos ordenados por destino")
         print("16- Ver estadisticas")
-        print("0- Salir")
+
+        print("\n0- Salir")
 
         opcion = pedir_numero("Opcion: ")
 
