@@ -134,17 +134,18 @@ def menu():
         print("\n--- Consultas ---")
         print("8- Ver aviones disponibles")
         print("9- Ver vuelos continentales")
-        print("10- Ver modelos de aviones")
-        print("11- Ver capacidad total")
+        print("10- Ver vuelos intercontinentales")
+        print("11- Ver modelos de aviones")
+        print("12- Ver capacidad total")
 
         print("\n--- Archivos ---")
-        print("12- Guardar reporte de vuelos en TXT")
-        print("13- Guardar datos en JSON")
-        print("14- Cargar datos desde JSON")
+        print("13- Guardar reporte de vuelos en TXT")
+        print("14- Guardar datos en JSON")
+        print("15- Cargar datos desde JSON")
 
         print("\n--- Reportes y estadisticas ---")
-        print("15- Ver vuelos ordenados por destino")
-        print("16- Ver estadisticas")
+        print("16- Ver vuelos ordenados por destino")
+        print("17- Ver estadisticas")
 
         print("\n0- Salir")
 
@@ -169,20 +170,22 @@ def menu():
         elif opcion == 9:
             mostrar_vuelos_continentales()
         elif opcion == 10:
-           mostrar_modelos_aviones()
+            mostrar_vuelos_intercontinentales()
         elif opcion == 11:
-           mostrar_capacidad_total()
+           mostrar_modelos_aviones()
         elif opcion == 12:
+           mostrar_capacidad_total()
+        elif opcion == 13:
            guardar_reporte_vuelos_txt()
         elif opcion == 0:
            print("Fin del sistema")
-        elif opcion == 13:
-           guardar_datos_json()
         elif opcion == 14:
-           cargar_datos_json()
+           guardar_datos_json()
         elif opcion == 15:
-           mostrar_vuelos_ordenados_destino()
+           cargar_datos_json()
         elif opcion == 16:
+           mostrar_vuelos_ordenados_destino()
+        elif opcion == 17:
            mostrar_estadisticas()
         else:
             print("Opcion invalida")
@@ -361,6 +364,19 @@ def mostrar_vuelos_continentales():
     for vuelo in continentales:
         print(vuelo["origen"], "->", vuelo["destino"], "-", vuelo["avion"])
         
+def mostrar_vuelos_intercontinentales():
+    """muestra solo los vuelos intercontinentales usando filter"""
+
+    intercontinentales = list(filter(lambda vuelo: vuelo["tipo"] == "intercontinental", vuelos))
+
+    if len(intercontinentales) == 0:
+        print("No hay vuelos intercontinentales")
+        return
+
+    print("\nVuelos intercontinentales:")
+    for vuelo in intercontinentales:
+        print(vuelo["origen"], "->", vuelo["destino"], "-", vuelo["avion"])
+        
 def mostrar_modelos_aviones():
     """muestra los modelos de aviones usando map"""
 
@@ -406,6 +422,11 @@ def guardar_reporte_vuelos_txt():
     
 def guardar_datos_json():
     """guarda los datos principales del sistema en un archivo JSON"""
+
+    if len(vuelos) == 0 and len(pasajeros) == 0 and len(reservas) == 0:
+        print("No hay datos cargados para guardar")
+        print("Primero cargue datos desde JSON o registre información nueva")
+        return
 
     datos = {
         "aviones": aviones,

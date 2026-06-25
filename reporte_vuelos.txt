@@ -5,5 +5,26 @@ Origen: Buenos Aires
 Destino: Miami
 Tipo: intercontinental
 Avion: A350
+Asientos disponibles: 297
+-------------------------
+Vuelo 2
+Origen: Buenos Aires
+Destino: Cordoba
+Tipo: continental
+Avion: A320
+Asientos disponibles: 179
+-------------------------
+Vuelo 3
+Origen: Buenos Aires
+Destino: Mendoza
+Tipo: continental
+Avion: A320
+Asientos disponibles: 179
+-------------------------
+Vuelo 4
+Origen: Buenos Aires
+Destino: Miami
+Tipo: intercontinental
+Avion: Boeing 777
 Asientos disponibles: 299
 -------------------------
