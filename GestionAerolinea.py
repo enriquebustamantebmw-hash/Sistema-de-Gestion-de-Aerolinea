@@ -49,6 +49,15 @@ def crear_vuelo():
     print("\nCrear vuelo")
     origen = input("Origen: ")
     destino = input("Destino: ")
+    
+
+    if not validar_texto(origen):
+      print("Origen invalido")
+    return
+
+    if not validar_texto(destino):
+      print("Destino invalido")
+    return
 
     print("1- Continental")
     print("2- Intercontinental")
@@ -184,6 +193,14 @@ def registrar_pasajero():
     nombre = input("Nombre: ")
     apellido = input("Apellido: ")
     dni = input("DNI: ")
+    
+    if not validar_texto(nombre):
+     print("Nombre invalido")
+    return
+
+    if not validar_texto(apellido):
+     print("Apellido invalido")
+    return
 
     if buscar_pasajero_por_dni(dni) != None:
         print("ya existe un pasajero registrado con ese dni")
@@ -474,5 +491,15 @@ def pedir_numero(mensaje):
     except ValueError:
         print("Debe ingresar un numero")
         return -1
+    
+def validar_texto(texto):
+    """valida que el texto tenga solo letras y espacios"""
+
+    patron = "^[a-zA-Z ]+$"
+
+    if re.match(patron, texto):
+        return True
+    else:
+        return False
     
 menu()
