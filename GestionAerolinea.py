@@ -52,13 +52,13 @@ def crear_vuelo():
     
 
     if not validar_texto(origen):
-      print("Origen invalido")
-    return
+       print("Origen invalido")
+       return
 
     if not validar_texto(destino):
-      print("Destino invalido")
-    return
-
+       print("Destino invalido")
+       return
+ 
     print("1- Continental")
     print("2- Intercontinental")
     opcion = pedir_numero("Opcion: ")
@@ -195,12 +195,12 @@ def registrar_pasajero():
     dni = input("DNI: ")
     
     if not validar_texto(nombre):
-     print("Nombre invalido")
-    return
+       print("Nombre invalido")
+       return
 
     if not validar_texto(apellido):
-     print("Apellido invalido")
-    return
+       print("Apellido invalido")
+       return
 
     if buscar_pasajero_por_dni(dni) != None:
         print("ya existe un pasajero registrado con ese dni")
@@ -501,5 +501,6 @@ def validar_texto(texto):
         return True
     else:
         return False
-    
-menu()
+
+if __name__ == "__main__":
+    menu()
