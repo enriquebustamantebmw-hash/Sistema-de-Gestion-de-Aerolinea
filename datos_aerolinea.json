@@ -5,14 +5,14 @@
             "modelo": "A320",
             "tipo": "continental",
             "capacidad": 180,
-            "disponible": true
+            "disponible": false
         },
         {
             "id": 2,
             "modelo": "A320",
             "tipo": "continental",
             "capacidad": 180,
-            "disponible": true
+            "disponible": false
         },
         {
             "id": 3,
@@ -40,7 +40,7 @@
             "modelo": "Boeing 777",
             "tipo": "intercontinental",
             "capacidad": 300,
-            "disponible": true
+            "disponible": false
         }
     ],
     "vuelos": [
@@ -50,6 +50,30 @@
             "tipo": "intercontinental",
             "avion": "A350",
             "capacidad": 300,
+            "asientos_disponibles": 297
+        },
+        {
+            "origen": "Buenos Aires",
+            "destino": "Cordoba",
+            "tipo": "continental",
+            "avion": "A320",
+            "capacidad": 180,
+            "asientos_disponibles": 179
+        },
+        {
+            "origen": "Buenos Aires",
+            "destino": "Mendoza",
+            "tipo": "continental",
+            "avion": "A320",
+            "capacidad": 180,
+            "asientos_disponibles": 179
+        },
+        {
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "tipo": "intercontinental",
+            "avion": "Boeing 777",
+            "capacidad": 300,
             "asientos_disponibles": 299
         }
     ],
@@ -58,12 +82,112 @@
             "nombre": "Enrique",
             "apellido": "Bustamante",
             "dni": "43368594"
+        },
+        {
+            "nombre": "Maria",
+            "apellido": "Gonzales",
+            "dni": "41234567"
+        },
+        {
+            "nombre": "Lucas ",
+            "apellido": "Fernandez",
+            "dni": "42345678"
+        },
+        {
+            "nombre": "Sofia ",
+            "apellido": "Rodriguez",
+            "dni": "43456789"
+        },
+        {
+            "nombre": "Agustin",
+            "apellido": "Lopez",
+            "dni": "44567890"
+        },
+        {
+            "nombre": "Valentina",
+            "apellido": "Martinez",
+            "dni": "45678901"
+        },
+        {
+            "nombre": "Tomas ",
+            "apellido": "Sanchez",
+            "dni": "46789012"
+        },
+        {
+            "nombre": "Camila",
+            "apellido": "Romero",
+            "dni": "47890123"
+        },
+        {
+            "nombre": "Mateo ",
+            "apellido": "Alvarez",
+            "dni": "41876543"
+        },
+        {
+            "nombre": "Julieta",
+            "apellido": "Diaz",
+            "dni": "42987654"
+        },
+        {
+            "nombre": "Nicolas",
+            "apellido": "Torres",
+            "dni": "43981234"
+        },
+        {
+            "nombre": "Franco",
+            "apellido": "Castro",
+            "dni": "41934567"
+        },
+        {
+            "nombre": "Milagros",
+            "apellido": "Herrera",
+            "dni": "42845678"
+        },
+        {
+            "nombre": "Benjamin ",
+            "apellido": "Medina",
+            "dni": "43756789"
         }
     ],
     "reservas": [
         {
             "dni": "43368594",
             "pasajero": "Enrique Bustamante",
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "avion": "A350"
+        },
+        {
+            "dni": "43368594",
+            "pasajero": "Enrique Bustamante",
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "avion": "A350"
+        },
+        {
+            "dni": "43756789",
+            "pasajero": "Benjamin  Medina",
+            "origen": "Buenos Aires",
+            "destino": "Cordoba",
+            "avion": "A320"
+        },
+        {
+            "dni": "42845678",
+            "pasajero": "Milagros Herrera",
+            "origen": "Buenos Aires",
+            "destino": "Mendoza",
+            "avion": "A320"
+        },
+        {
+            "dni": "42987654",
+            "pasajero": "Julieta Diaz",
+            "origen": "Buenos Aires",
+            "destino": "Miami",
+            "avion": "Boeing 777"
+        },
+        {
+            "dni": "44567890",
+            "pasajero": "Agustin Lopez",
             "origen": "Buenos Aires",
             "destino": "Miami",
             "avion": "A350"
